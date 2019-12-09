@@ -1,0 +1,20 @@
+<div class="card">
+  <img class="card-img-top" 
+  (click)="onToggle()"
+  src="http://localhost:8000/api/books/{{book.id}}/image" alt="Card image cap">
+  <div class="class-body" [hidden]="detail">
+    <p><b>Title:</b> {{book.title}}</p>
+    <p><b>Publisher:</b> {{book.publisher}}</p>
+    <p><b>Authors:</b> {{book.author}}</p>
+    <p><b>Categories:</b> {{book.category}}</p>
+    <p><b>Date of arrival:</b> {{book.arrivalDate}}</p>
+    <p><b>Published date:</b> {{book.publishedDate}}</p>
+    <p><b>Price:</b> R{{book.price}}</p>
+    <p><b>Quantity:</b> {{book.quantity}}</p>
+    <button href="#" class="card-link"> Add to cart</button>
+    <button (click)="onToggle()" class="card-link"> Hide detail
+    </button><br>
+    <button (click)="deleteById()" class="card-link"> Delete Book
+    </button>
+  </div>
+</div>

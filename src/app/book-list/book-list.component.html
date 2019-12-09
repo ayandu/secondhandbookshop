@@ -1,0 +1,2 @@
+<app-book-form (createdEventEmitter)="add($event)"></app-book-form>
+<app-book-detail  *ngFor="let b of books" [book]="b" (deletedEventEmitter)="delete($event)"></app-book-detail>

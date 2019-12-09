@@ -1,0 +1,70 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <label>
+    Title:
+    <input type="text" formControlName="title" required>
+  </label>
+
+  <label>
+    Publisher:
+    <input type="text" formControlName="publisher">
+  </label>
+
+  <div formArrayName="authors">
+    <h3>Authors</h3> <button (click)="addAuthor()">Add Author</button>
+    <div *ngFor="let address of authors.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label>
+        Author:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+  </div>
+
+  <div formArrayName="categories">
+    <h3>Categories</h3> <button (click)="addCategory()">Add Category</button>
+    <div *ngFor="let address of categories.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label>
+        Category:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+  </div>
+
+  <label>
+    Published:
+    <input type="date" formControlName="publishedDate">
+  </label>
+
+  <label>
+    Price:
+    <input type="number" formControlName="price">
+  </label>
+  <label>
+    Quantity:
+    <input type="number" formControlName="quantity">
+  </label>
+  <label>
+    Image Name:
+    <input type="text" formControlName="imageName">
+  </label>
+
+  <button type="submit" [disabled]="!bookForm.valid">Submit</button>
+</form>
+
+
+<hr>
+
+
+<p>
+  Form Value: {{ bookForm.value | json }}
+</p>
+
+
+<p>
+  Form Status: {{ bookForm.status }}
+</p>
+
+<p>
+  <button (click)="updateBook()">Update Book</button>
+</p>
